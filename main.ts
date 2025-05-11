@@ -8,29 +8,10 @@
 
 
 
-enum NICE_TEXT_DIR {
-    //% block="LEFT"
-    LEFT,
-    //% block="UP"
-    UP,
-    //% block="RIGHT"
-    RIGHT,
-    //% block="DOWN"
-    DOWN
-}
-
-enum NICE_TEXT_ROTATE {
-    //% block="0"
-    SR_0,
-    //% block="90"
-    SR_90,
-    //% block="180"
-    SR_180,
-    //% block="270"
-    SR_270
-}
-
-
+enum NICE_TEXT_FONT {
+    //% block="MINECRAFT ALPHA"
+    MINECRAFT_ALPHA = "MINECRAFT_ALPHA",
+ }
 
 
 //% weight=20 color=#Ffbc11 icon="T" block="NiceText"
@@ -51,7 +32,9 @@ namespace NiceText {
      * @param s      , eg: "Hello"
      * @param delay  , eg: 100
      */
-    //% blockId="NICE_TEXT_SHOWSTRING" block="scroll string %s|delay %delay"
+    //% blockId="NICE_TEXT_SHOWSTRING"
+    //% block="scroll string %s|delay %delay|letter spacing %letterSpacing|word spacing %wordSpacing"
+    //% s.defl="Hello world!" delay.defl=200 letterSpacing.defl=1 wordSpacing.defl=3
     //% weight=100 blockGap=8
     export function showString(message: string, delay: number, letterSpacing: number, wordSpacing: number): void {
         if (message == '') return
@@ -100,7 +83,8 @@ namespace NiceText {
       * @param n      , eg: 123
       * @param delay  , eg: 100
       */
-    //% blockId="NICE_TEXT_SHOWNUMBER" block="scroll number %n|delay %delay"
+    //% blockId="NICE_TEXT_SHOWNUMBER" block="scroll number %n|delay %delay|letter spacing %letterSpacing|word spacing %wordSpacing"
+    //% n.defl=123 delay.defl=200 letterSpacing.defl=1 wordSpacing.defl=3
     //% weight=100 blockGap=8
     export function showNumber(n: number, delay: number, letterSpacing: number, wordSpacing: number): void {
         showString(n.toString(), delay, letterSpacing, wordSpacing)
@@ -132,6 +116,3 @@ namespace NiceText {
         }
     }
 }
-
-
-NiceText.showString('HELLO WORLD!', 300, 1, 5);
